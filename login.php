@@ -2,20 +2,20 @@
 <html>
 <head>
     <title>Simple Login System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-        body {
+          body {
             font-family: Arial, sans-serif;
-            background-color:darkcyan;
+            background: linear-gradient(to right,#ddd6f3,#faaca8);
             text-align: left;
         }
         .container {
-            max-width: 300px;
+            max-width: 350px;
             margin: 0 auto;
             background: white;
-            padding: 25px;
-            border-radius: 7px;
+            padding: 33px;
+            border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            
         }
         h2 {
             color: black;
@@ -24,10 +24,11 @@
         h2::before, h2::after {
             content: '';
             position: absolute;
-            top: 50%;
+            top: 35%;
             width: 35%; 
             height: 10px;
-            background-color: darkcyan;
+            border-radius: 5px;
+            background: linear-gradient(to right,#ddd6f3,#faaca8);
         }
 
         h2::before {
@@ -44,31 +45,53 @@
         }
         input[type="text"],
         input[type="password"] {
-            width: 94.5%;
+            width: 87%;
             padding:10px;
             margin: 5px 0;
             border: 1.9px solid black;
-            border-radius: 5px;
+            border-radius: 20px;
         }
         input[type="submit"] {
-            background-color: darkcyan;
-            color: #fff;
-            padding: 10px 10px;
+            background: linear-gradient(to right,#ddd6f3,#faaca8);
+            color: black;
+            padding: 10px 20px;
             border: none;
-            border-radius: 3px;
-            width:10rem;
+            border-radius: 20px;
+            width:12rem;
             cursor: pointer;
-            font-size: 15px;
-            margin-top: 30px;
+            font-size: 20px;
+            margin-top: 25px;
         }
         input[type="submit"]:hover {
-            background-color: gray;
+            transition: background-color 0.3s, color 0.3s;
+            background: linear-gradient(to right, #faaca8, #ddd6f3); 
+            color: white; 
         }
         #error-message {
             color: red;
             display: none;
             margin-top: 10px;
         }
+        .input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    position: relative;
+}
+
+.icon i {
+    position: absolute;
+    top: 71%;
+    left: 10px; /* Adjust the left position as needed */
+    transform: translateY(-50%);
+}
+
+.icon input {
+    padding-left: 30px; /* Adjust the padding-left to make space for the icon */
+}
+
     </style>
 </head>
 
@@ -102,13 +125,21 @@
 <div class="container">
 <center><h2>Login</h2></center>
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required><br><br>
+<div class="input-container">
+    <div class="icon">
+        <i class="fa fa-user"></i>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div class="icon">
+        <i class="fa fa-lock"></i>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+</div>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
 
-    <center><input type="submit" value="Login"></center>
+   <center><input type="submit" value="Login"></center>
 </form>
 
 <?php

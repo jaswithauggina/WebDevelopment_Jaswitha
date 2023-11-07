@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ddd6f3, #faaca8);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        section {
+            height: 90vh;
+            position: relative;
+        }
+        .text {
+            font-size: 40px;
+            font-family: Arial, sans-serif;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: #fff;
+            border-radius: 25px;
+            padding: 30px;
+        }
+        .signup-button,
+        .login-button {
+            background: linear-gradient(to right, #ddd6f3, #faaca8);
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            width: 9rem;
+            height: 2em;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .signup-button:hover, .login-button:hover
+        {
+            background: linear-gradient(to right, #faaca8, #ddd6f3); 
+            color: white; 
+        }
+        .signup-button {
+            margin-bottom: 70px;
+            margin-right: 50px;
+        }
+        .login-button {
+            margin-bottom: 70px;
+            margin-left: 50px;
+        }
+    </style>
+    <script>
+        function redirectToRegister() {
+            window.location.href = "register.php";
+        }
+
+        function redirectToLogin() {
+            window.location.href = "login.php";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text">WELCOME TO THE LEARNING SPACE</h1>
+        <div>
+            <button class="signup-button" onclick="redirectToRegister()">Sign up</button>
+            <button class="login-button" onclick="redirectToLogin()">Login</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -52,7 +52,7 @@
             display: block;
             margin: 10px 0;
             color: #333;
-            font-weight: 900px;
+            font-weight: 600;
         }
 
         .password-container input[type="password"] 
@@ -99,8 +99,16 @@
             background: linear-gradient(to right, #faaca8, #ddd6f3); 
             color: white; 
         }
+        input[type="checkbox"] 
+        {
+            margin: 7px 0;
+            font-size: 7px;
+            border: 1px solid gray;
+            border-radius: 3px;
+            width: 5%;
+}
 
-    </style>
+        </style>
 </head>
 <body>
     <div class="container">
@@ -126,49 +134,45 @@
             }
         }
         ?>
-<form action="" method="POST" >
-<div>
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" placeholder="Enter your full name" required pattern="[A-Za-z ]+" title="Please enter a valid name with alphabets only">
-</div>
-
-<div>
-		<label for="username">Username</label>
-		<input type="text" id="username" name="username" placeholder="Enter a username" required>
-</div>
-<div>
-                <label for="password">Create Password</label>
-                <input type="password" id="pass" name="password" maxlength="8" placeholder="Enter your password" required>
+<form action="" method="POST">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required pattern="[A-Za-z ]+" title="Please enter a valid name with alphabets only">
     </div>
     <div>
-
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" maxlength="8" placeholder="Confirm your password" required>
-            </div>
-            <div>
-    <label for="email">Email address</label>
-    <input type="text" id="email" name="email" placeholder="sfdh@gmail.com" required pattern="[a-zA-Z0-9._%+-]+@gmail.com" title="Please enter a valid email address">
-</div>
-
-
-<div>
-    <label for="phone">Phone number</label>
-    <input type="tel" id="phone" name="phone" placeholder="1234567890" required pattern="\d{10}" title="Please enter a 10-digit phone number">
-</div>
-<div>
+		<label for="username">Username</label>
+		<input type="text" id="username" name="username" placeholder="Enter a username" required>
+    </div>
+    <div>
+        <label for="password">Create Password</label>
+        <input type="password" id="pass" name="password" maxlength="8" placeholder="Enter your password" required>
+    </div>
+    <div>
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" maxlength="8" placeholder="Confirm your password" required>
+    </div>
+    <div>
+        <label for="email">Email address</label>
+        <input type="text" id="email" name="email" placeholder="sfdh@gmail.com" required pattern="[a-zA-Z0-9._%+-]+@gmail.com" title="Please enter a valid email address">
+    </div>
+    <div>
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" placeholder="1234567890" required pattern="\d{10}" title="Please enter a 10-digit phone number">
+    </div>
+    <div>
 		<label for="bdate">Date of birth</label>
 		<input type="date" id="bdate" name="bdate" >
-</div>
-
-<div>
-		<center><input type="submit" value="Register" ></center>
-	
-</div>
-
-
-
-</form>
-
     </div>
+    <div>
+    <label for="terms-and-conditions">
+        <input id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" /> I accept the terms and conditions</a>
+    </label>
+    </div>
+
+    <div>
+		<center><input type="submit" value="Register" ></center>
+    </div>
+</form>
+</div>
 </body>
 </html>

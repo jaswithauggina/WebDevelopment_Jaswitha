@@ -42,6 +42,7 @@
             display: block;
             margin: 10px 0;
             color: #333;
+            font-weight: 600;
         }
         input[type="text"],
         input[type="password"] {

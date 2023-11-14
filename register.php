@@ -134,7 +134,7 @@
             }
         }
         ?>
-<form action="" method="POST">
+<form action="datab.php" method="POST">
     <div>
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Enter your full name" required pattern="[A-Za-z ]+" title="Please enter a valid name with alphabets only">
@@ -145,7 +145,7 @@
     </div>
     <div>
         <label for="password">Create Password</label>
-        <input type="password" id="pass" name="password" maxlength="8" placeholder="Enter your password" required>
+        <input type="password" id="password" name="password" maxlength="8" placeholder="Enter your password" required>
     </div>
     <div>
         <label for="confirmPassword">Confirm Password</label>

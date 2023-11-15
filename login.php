@@ -99,29 +99,50 @@
 <body>
 
 <?php
-    // Initialize variables for error and success messages
-    $error = "";
-    $success = "";
+// Initialize variables for error and success messages
+$error = "";
+$success = "";
 
-    // Define an array of allowed credentials
-    $allowed_credentials = [
-        'registered_username' => 'registered_password'
-    ];
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get user input from the form
+    $entered_username = $_POST["username"];
+    $entered_password = $_POST["password"];
 
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $entered_username = $_POST["username"];
-        $entered_password = $_POST["password"];
+    // Your MySQL database credentials
+    $servername = "localhost";
+    $db_username = "root";
+    $db_password = "";
+    $database = "demo";
 
-        // Check if the entered credentials are in the allowed list
-        if (array_key_exists($entered_username, $allowed_credentials) &&
-            $allowed_credentials[$entered_username] == $entered_password) {
-            $success = "Login Successful!";
-        } else {
-            $error = "Invalid username or password. Please try again.";
-        }
+    // Create a database connection
+    $conn = new mysqli($servername, $db_username, $db_password, $database);
+
+    // Check the connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
+
+    // Prepare and execute a SQL statement to fetch the user's password from the database
+    $stmt = $conn->prepare("SELECT password FROM registration WHERE username = ?");
+    $stmt->bind_param("s", $entered_username);
+    $stmt->execute();
+    $stmt->bind_result($stored_password);
+    $stmt->fetch();
+    $stmt->close();
+
+    // Check if the entered password matches the stored password
+    if ($stored_password && password_verify($entered_password, $stored_password)) {
+        $success = "Login Successful!";
+    } else {
+        $error = "Invalid username or password. Please try again.";
+    }
+
+    // Close the database connection
+    $conn->close();
+}
 ?>
+
 
 <div class="container">
 <center><h2>Login</h2></center>

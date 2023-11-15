@@ -145,7 +145,7 @@
     </div>
     <div>
         <label for="password">Create Password</label>
-        <input type="password" id="password" name="password" maxlength="8" placeholder="Enter your password" required>
+        <input type="password" id="pass" name="password" maxlength="8" placeholder="Enter your password" required>
     </div>
     <div>
         <label for="confirmPassword">Confirm Password</label>

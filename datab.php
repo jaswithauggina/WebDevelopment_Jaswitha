@@ -27,10 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Insert user data into the database
     // Hash the password before storing it in the database
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $hashed_confirmPassword= password_hash($confirmPassword, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO registration (name, username, password, email, confirmPassword, phone, bdate) VALUES ('$name', '$username', '$hashed_password', '$email', '$confirmPassword', '$phone', '$bdate')";
-
-    //$sql = "INSERT INTO registration (name,username, password,email,confirmPassword,phone,bdate) VALUES ('$name','$username', '$password','$email','$confirmPassword','$phone','$bdate')";
+    $sql = "INSERT INTO registration (name, username, password, email, confirmPassword, phone, bdate) VALUES ('$name', '$username', '$hashed_password', '$email', '$hashed_confirmPassword', '$phone', '$bdate')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Registration successful!";
